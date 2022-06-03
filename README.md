@@ -1,5 +1,18 @@
+# SA-C-GENDER-CLASSIFIER
+## Algorithm
+1. import all the necessary libraries
 
-# ! Import required modules
+2. Train with the image dataset
+3. Predict with the test image
+4. Display data on the image
+
+## Program:
+```python
+"""
+Program to implement 
+Developed by   : MADITHATI YUVATEJA REDDY
+RegisterNumber :  212219040069
+"""
 import cv2 as cv
 import time
 import argparse
@@ -41,7 +54,6 @@ MODEL_MEAN_VALUES = (78.4263377603, 87.7689143744, 114.895847746)
 ageList = ['(0-2)', '(4-6)', '(8-12)', '(15-20)', '(25-32)', '(38-43)', '(48-53)', '(60-100)']
 genderList = ['Male', 'Female']
 
-# ! Load network
 genderNet = cv.dnn.readNet(genderModel, genderProto)
 faceNet = cv.dnn.readNet(faceModel, faceProto)
 
@@ -55,11 +67,9 @@ elif args.device == "gpu":
     genderNet.setPreferableTarget(cv.dnn.DNN_TARGET_CUDA)
     print("Using GPU device")
 
-# ! Open a video file or an image file or a camera stream
 cap = cv.VideoCapture(args.input if args.input else 0)
 padding = 20
 while cv.waitKey(1) < 0:
-    # ! Read frame
     t = time.time()
     hasFrame, frame = cap.read()
     if not hasFrame:
@@ -83,3 +93,8 @@ while cv.waitKey(1) < 0:
         cv.imshow("Gender Classification", frameFace)
     print("time : {:.3f}".format(time.time() - t))
 
+
+```
+
+## OUTPUT:
+![SKILL ASSESSMENT OUTPUT](output.PNG)
