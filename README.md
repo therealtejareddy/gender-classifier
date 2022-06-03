@@ -39,7 +39,7 @@ def getFaceBox(net, frame, conf_threshold=0.7):
 
 
 parser = argparse.ArgumentParser(description='Use this script to run age and gender recognition using OpenCV.')
-parser.add_argument('--input', help='Path to inpu                                           t image or video file. Skip this argument to capture frames from a camera.')
+parser.add_argument('--input', help='Path to input image or video file. Skip this argument to capture frames from a camera.')
 parser.add_argument("--device", default="cpu", help="Device to inference on")
 
 args = parser.parse_args()
